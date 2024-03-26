@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0" theme-name="Stellar" theme-version="1.27.0">
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.1.1">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -16,20 +16,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>归档 - 迟迟</title>
+  <title>art - 迟迟</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/2024/03/index.html">
+    <meta name="description" content="SPI机制的缺陷 通过上面的解析，可以发现，我们使用SPI机制的缺陷：  不能按需加载，需要遍历所有的实现，并实例化，然后在循环中才能找到我们需要的实现。如果不想用某些实现类，或者某些类实例化很耗时，它也被载入并实例化了，这就造成了浪费。 获取某个实现类的方式不够灵活，只能通过 Iterator 形式获取，不能根据某个参数来获取对应的实现类。 多个并发多线程使用 ServiceLoader 类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="art">
+<meta property="og:url" content="http://example.com/2024/03/26/art/index.html">
 <meta property="og:site_name" content="迟迟">
+<meta property="og:description" content="SPI机制的缺陷 通过上面的解析，可以发现，我们使用SPI机制的缺陷：  不能按需加载，需要遍历所有的实现，并实例化，然后在循环中才能找到我们需要的实现。如果不想用某些实现类，或者某些类实例化很耗时，它也被载入并实例化了，这就造成了浪费。 获取某个实现类的方式不够灵活，只能通过 Iterator 形式获取，不能根据某个参数来获取对应的实现类。 多个并发多线程使用 ServiceLoader 类">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-26T10:21:10.000Z">
+<meta property="article:modified_time" content="2024-03-26T10:29:50.314Z">
 <meta property="article:author" content="Jamie Chen">
-<meta name="twitter:card" content="summary">
+<meta property="article:tag" content="test">
+<meta name="twitter:card" content="summary_large_image">
   
   
   
-  
+  <meta name="keywords" content="test">
 
   <!-- feed -->
   
@@ -46,7 +51,7 @@
 </head>
 <body>
 
-<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">迟迟</div></a></div></header>
@@ -58,17 +63,65 @@
 <nav class="menu dis-select"></nav>
 </div>
 <div class="widgets">
+
+
 <widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/03/26/art/"><span class="title">art</span></a><a class="item title" href="/2024/03/26/22/"><span class="title">22</span></a><a class="item title" href="/2024/03/25/cover/"><span class="title">cover</span></a><a class="item title" href="/2024/03/25/more-writings/"><span class="title">more-writings</span></a><a class="item title" href="/2024/03/25/test/"><span class="title">test</span></a><a class="item title" href="/2024/03/25/hello-world/"><span class="title">Hello World</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">迟迟</div></a></div></header>
-
- 
 
 
-<div class="navbar top"><nav class="post"><a href="/">近期发布</a><a href="/categories">分类</a><a href="/tags">标签</a><a class="active" href="/archives">归档</a></nav></div><div class="post-list archives"><article class="" id="archive"><div class='archive-header h4'>2024</div><div class="archive-list"><a class='post fs14' href="/2024/03/26/art/"><time>03-26</time><span>art</span></a></div><div class="archive-list"><a class='post fs14' href="/2024/03/26/22/"><time>03-26</time><span>22</span></a></div><div class="archive-list"><a class='post fs14' href="/2024/03/25/cover/"><time>03-25</time><span>cover</span></a></div><div class="archive-list"><a class='post fs14' href="/2024/03/25/more-writings/"><time>03-25</time><span>more-writings</span></a></div><div class="archive-list"><a class='post fs14' href="/2024/03/25/test/"><time>03-25</time><span>test</span></a></div><div class="archive-list"><a class='post fs14' href="/2024/03/25/hello-world/"><time>03-25</time><span>Hello World</span></a></div></article></div>
+
+
+<div class="article banner top"><img class="bg lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/talk.png">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%BE%E8%AE%A1%E5%BC%80%E5%8F%91/">设计开发</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AE%BE%E8%AE%A1%E5%BC%80%E5%8F%91/iOS%E5%BC%80%E5%8F%91/">iOS开发</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-03-26T10:21:10.000Z">2024-03-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-03-26T10:29:50.314Z">2024-03-26</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>art</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>  SPI机制的缺陷</p>
+<p>通过上面的解析，可以发现，我们使用SPI机制的缺陷：</p>
+<ul>
+<li>不能按需加载，需要遍历所有的实现，并实例化，然后在循环中才能找到我们需要的实现。如果不想用某些实现类，或者某些类实例化很耗时，它也被载入并实例化了，这就造成了浪费。</li>
+<li>获取某个实现类的方式不够灵活，只能通过 Iterator 形式获取，不能根据某个参数来获取对应的实现类。</li>
+<li>多个并发多线程使用 ServiceLoader 类的实例是不安全的。</li>
+</ul>
+<span id="more"></span>
+
+
+
+<p>当我把else注释掉，编译不会通过：<code>The local variable response may not have been initializedJava(536870963)</code> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestServer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">9090</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;9090端口正在被监听...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">Socket</span> <span class="variable">accept</span> <span class="operator">=</span> serverSocket.accept();</span><br><span class="line">            System.out.println(<span class="string">&quot;客户端连接成功: &quot;</span> + accept.getInetAddress());</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Read client&#x27;s request</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> accept.getInputStream();</span><br><span class="line"></span><br><span class="line">            <span class="type">byte</span>[] requestBytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">readLen</span> <span class="operator">=</span> inputStream.read(requestBytes);</span><br><span class="line">            <span class="type">String</span> <span class="variable">clientRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(requestBytes, <span class="number">0</span>, readLen);</span><br><span class="line">            System.out.println(<span class="string">&quot;客户端请求内容: &quot;</span> + clientRequest);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Extract the requested path from the request</span></span><br><span class="line">            String[] requestLines = clientRequest.split(<span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">            String[] requestLineParts = requestLines[<span class="number">0</span>].split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> requestLineParts[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Handle the request based on the path</span></span><br><span class="line">            String response;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;/login&quot;</span>.equals(path)) &#123;</span><br><span class="line">                response = <span class="string">&quot;HTTP/1.1 200 OK\r\n\r\nWelcome to the login page!&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//当我把else注释掉，编译不会通过：The local variable response may not have been initializedJava(536870963)</span></span><br><span class="line">            <span class="comment">// else &#123;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// response = &quot;HTTP/1.1 404 Not Found\r\n\r\nPage not found!&quot;;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">// Send the response back to the client</span></span><br><span class="line"></span><br><span class="line">            <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> accept.getOutputStream();</span><br><span class="line"></span><br><span class="line">            outputStream.write(response.getBytes());</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">            <span class="comment">// Close the streams and socket</span></span><br><span class="line"></span><br><span class="line">            inputStream.close();</span><br><span class="line"></span><br><span class="line">            outputStream.close();</span><br><span class="line">            accept.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为你把else注释掉，response就可能存在没有赋初始值的情况。</p>
+<p>java语言规定局部变量必须显示初始化。全局变量保存在堆中，在创建对象时就必须确定变量的大小，所以jvm会初始化全局变量。而局部变量保存在方法栈中，编译器无法确定局部变量的大小，更好的选择是程序员手动进行初始化。</p>
+<p>除了在使用局部变量之前手动赋一个初始值，也可以使用<code>if else</code>来确保局部变量在使用之前可以被初始化。这也就是为什么你有时候不手动给局部变量赋值也能使用，因为已经用条件语句确保它有值。就像上面的例子。</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/03/26/22/">22</a></div></section></div>
+
+
+
+
+
+
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Jamie Chen</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
