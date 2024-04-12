@@ -26,19 +26,17 @@
 <meta property="og:site_name" content="迟迟">
 <meta property="og:description" content="初始：一个日志库的使用例子通过一个使用log4j2 + slf4j的案例初步认识日志库的使用：  创建pom项目，引入相关依赖： 123456789101112131415161718&lt;!-- SLF4J API --&gt;&lt;dependency&gt;  &lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;  &lt;artifactId&gt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240412105557104.png">
-<meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/dev-package-log-6.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="article:published_time" content="2024-04-12T02:35:25.000Z">
-<meta property="article:modified_time" content="2024-04-12T04:02:46.536Z">
+<meta property="article:modified_time" content="2024-04-12T04:05:49.889Z">
 <meta property="article:author" content="Jamie Chen">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240412105557104.png">
+<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
   
   
   
@@ -86,7 +84,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/java/">java</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-12T02:35:25.000Z">2024-04-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-12T04:02:46.536Z">2024-04-12</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-12T02:35:25.000Z">2024-04-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-12T04:05:49.889Z">2024-04-12</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -113,7 +111,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.tools.javac.Main;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(Main.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        logger.info(<span class="string">&quot;This is an info message&quot;</span>);</span><br><span class="line">        logger.error(<span class="string">&quot;This is an error message&quot;</span>, <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Oops! Something went wrong.&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看日志输出</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240412105557104.png" class=""></li>
+/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240412105557104.png</li>
 </ol>
 <p>在这个案例中，使用了slf4j的api进行日志输出，log4j2负责在程序运行时生成并记录日志，而程序开发人员使用slf4j提供的api来指定日志的记录。</p>
 <p>在引入依赖时，分别引入了slf4j的api ： <code>slf4j-api</code>、log4j2的日志功能的实现：<code>log4j-core</code>，以及选择<code>log4j-slf4j-impl</code>作为slf4j和log4j2的桥接包，让slf4j 与实现日志功能的log4j绑定。这样就可以使用slf4j的api调用log4j2提供的日志功能。这种设计模式成为门面模式（Facade Pattern 可参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/facade-pattern-3.html%EF%BC%89%E3%80%82">https://www.runoob.com/w3cnote/facade-pattern-3.html）。</a></p>
@@ -122,7 +120,7 @@
 <h2 id="日志库-—-日志门面"><a href="#日志库-—-日志门面" class="headerlink" title="日志库 — 日志门面"></a>日志库 — 日志门面</h2><p>在 Java 中，有几个常见的日志门面框架，它们为开发人员提供了统一的日志记录接口，使得在应用程序中记录日志变得更加灵活和可移植.</p>
 <h3 id="SLF4J-Simple-Logging-Facade-for-Java"><a href="#SLF4J-Simple-Logging-Facade-for-Java" class="headerlink" title="SLF4J (Simple Logging Facade for Java)"></a>SLF4J (Simple Logging Facade for Java)</h3><p>SLF4J 是一个简单的日志门面框架，它允许开发人员在应用程序中使用统一的 API 来记录日志。SLF4J 提供了一组接口，开发人员可以使用这些接口来记录日志消息，而不用关心底层日志库的具体实现。SLF4J 还提供了与不同日志实现（如Log4j、Logback等）集成的机制，通过引入相应的日志实现，可以将 SLF4J 绑定到具体的日志库上。</p>
 <p>类似于 Common-Logging，slf4j 是对不同日志框架提供的一个 API 封装，可以在部署的时候不修改任何配置即可接入一种日志实现方案。但是，slf4j 在编译时静态绑定真正的 Log 库。使用 SLF4J 时，如果你需要使用某一种日志实现，那么你必须选择正确的 SLF4J 的 jar 包的集合（各种桥接包）。</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/dev-package-log-6.png" class="">
+/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/dev-package-log-6.png
 
 <p><strong>使用 SLF4J 的主要步骤</strong>：</p>
 <ol>
