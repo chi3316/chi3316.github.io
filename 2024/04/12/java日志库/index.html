@@ -37,9 +37,10 @@
 <meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240412105557104.png">
 <meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240416105549891.png">
 <meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240416110016934.png">
+<meta property="og:image" content="http://example.com/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/dev-package-log-5.png">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs/ablobcatrainbow.png">
 <meta property="article:published_time" content="2024-04-12T02:35:25.000Z">
-<meta property="article:modified_time" content="2024-04-16T07:28:54.716Z">
+<meta property="article:modified_time" content="2024-04-18T08:46:45.856Z">
 <meta property="article:author" content="Jamie Chen">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
@@ -91,7 +92,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/java/">java</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-12T02:35:25.000Z">2024-04-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-16T07:28:54.716Z">2024-04-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-12T02:35:25.000Z">2024-04-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-18T08:46:45.856Z">2024-04-18</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -290,7 +291,7 @@
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/image-20240416110016934.png" class="lazy" title="deprndencies"></li>
 </ol>
 <h3 id="slf4j兼容非slf4j组件-—-桥接"><a href="#slf4j兼容非slf4j组件-—-桥接" class="headerlink" title="slf4j兼容非slf4j组件 — 桥接"></a>slf4j兼容非slf4j组件 — 桥接</h3><p>假如应用程序所调用的组件当中已经使用了 common-logging，这时需要 jcl-over-slf4j.jar 把日志信息输出重定向到 slf4j-api，slf4j-api 再去调用 slf4j 实际依赖的日志组件。这个过程称为桥接。下图是官方的 slf4j 桥接策略图</p>
-
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/04/12/java%E6%97%A5%E5%BF%97%E5%BA%93/dev-package-log-5.png" class="lazy" title="bridge">
 
 <p>无论项目中使用的是 common-logging 或是直接使用 log4j、java.util.logging，都可以使用对应的桥接 jar 包来解决兼容问题。</p>
 <ul>

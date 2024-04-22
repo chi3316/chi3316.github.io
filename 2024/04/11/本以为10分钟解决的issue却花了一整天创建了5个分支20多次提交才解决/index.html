@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://example.com/assets/image-20240416212254237.png">
 <meta property="og:image" content="http://example.com/assets/image-20240416091309066.png">
 <meta property="article:published_time" content="2024-04-11T01:45:12.000Z">
-<meta property="article:modified_time" content="2024-04-16T13:23:30.249Z">
+<meta property="article:modified_time" content="2024-04-22T07:45:32.437Z">
 <meta property="article:author" content="Jamie Chen">
 <meta property="article:tag" content="dubbo">
 <meta name="twitter:card" content="summary_large_image">
@@ -99,7 +99,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%8F%82%E4%B8%8E%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/">参与开源社区</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-11T01:45:12.000Z">2024-04-11</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-16T13:23:30.249Z">2024-04-16</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-04-11T01:45:12.000Z">2024-04-11</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-04-22T07:45:32.437Z">2024-04-22</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -307,6 +307,24 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240416212254237.png" alt="image-20240416212254237"></p>
 <p>还给我点了个赞，非常开心！！！</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240416091309066.png" alt="image-20240416091309066"></p>
+<hr>
+
+<p>又回来这个仓库看看，发现项目中使用的日志框架都是slf4j + log4j2。而在我提交的pr中，把两个模块的日志框架改成了logback + slf4j。这和项目不统一，应该修改。同时在项目中也存在着许多日志警告的问题，大都是在引入<code>dubbo-zookeeper-curator5-spring-boot-starter</code>的时候没有排除掉对应的依赖。</p>
+<p>下面列出存在问题的模块：</p>
+<ul>
+<li>dubbo-samples-cache 、dubbo-samples-group 、dubbo-samples-mock 、dubbo-samples-notify 、dubbo-samples-rpccontext 、dubbo-samples-service-discovery 、dubbo-samples-spring-security 、dubbo-samples-validation ：存在多个日志实现的警告（原因：引入dubbo-zookeeper-curator5-spring-boot-starter没有排除logback；这个版本<code>3.3.0-beta.2-SNAPSHOT</code>已经将日志依赖设置为optional，<code>3.3.0-beta.1</code> 则会存在这个问题）</li>
+<li>dubbo-samples-callback 、 dubbo-samples-environment-keys  使用了logback , 而不是项目统一的log4j2</li>
+</ul>
+<p>对于存在多个日志实现的警告，解决方法有两种：</p>
+<ol>
+<li>在引入依赖时手动排除掉logback的相关依赖</li>
+<li>引入新版本的<code>dubbo-zookeeper-curator5-spring-boot-starter</code> , 及<code>3.3.0-beta.2</code>，这个版本已经不会自动将日志实现一起引入。</li>
+</ol>
+<p>对于日志框架不统一的问题，需要自己再手动解决：</p>
+<ol>
+<li>在依赖管理中排除<code>dubbo-zookeeper-curator5-spring-boot-starter</code>中的logback相关依赖</li>
+<li>引入slf4j2的相关依赖</li>
+</ol>
 
 <div class="article-footer fs14">
     <section id="license">
