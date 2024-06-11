@@ -26,6 +26,10 @@
 <meta property="og:site_name" content="迟迟">
 <meta property="og:description" content="期末计算机网络知识复习总结">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chi3316.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113407853.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113422623.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113455060.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113507149.png">
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240610163441074.png">
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240610164540588.png">
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240610165619382.png">
@@ -40,11 +44,21 @@
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240610200726988.png">
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240610203747609.png">
 <meta property="og:image" content="https://chi3316.github.io/assets/image-20240611094757260.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611095844989.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611101454030.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611101418648.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611101815905.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611105528863.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611110019687.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611110329711.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611110442161.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611110916280.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240611111407426.png">
 <meta property="article:published_time" content="2024-06-07T03:22:00.000Z">
-<meta property="article:modified_time" content="2024-06-11T01:49:32.585Z">
+<meta property="article:modified_time" content="2024-06-11T03:37:26.461Z">
 <meta property="article:author" content="Jamie Chen">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://chi3316.github.io/assets/image-20240610163441074.png">
+<meta name="twitter:image" content="https://chi3316.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113407853.png">
   
   
   
@@ -92,7 +106,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-06-07T03:22:00.000Z">2024-06-07</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-06-11T01:49:32.585Z">2024-06-11</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-06-07T03:22:00.000Z">2024-06-07</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-06-11T03:37:26.461Z">2024-06-11</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -108,7 +122,98 @@
 
 
 
-<h2 id="1-网络基本概念"><a href="#1-网络基本概念" class="headerlink" title="1. 网络基本概念"></a>1. 网络基本概念</h2><h2 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2. 应用层"></a>2. 应用层</h2><h2 id="3-传输层"><a href="#3-传输层" class="headerlink" title="3. 传输层"></a>3. 传输层</h2><h3 id="3-1-传输层的职责概述及其为上层提供的服务"><a href="#3-1-传输层的职责概述及其为上层提供的服务" class="headerlink" title="3.1 传输层的职责概述及其为上层提供的服务"></a>3.1 传输层的职责概述及其为上层提供的服务</h3><p>传输层负责为运行在不同主机上的应用进程提供逻辑通信，传输层的协议运行在端系统。大致的工作流程：</p>
+<h2 id="1-网络基本概念"><a href="#1-网络基本概念" class="headerlink" title="1. 网络基本概念"></a>1. 网络基本概念</h2><blockquote>
+<p>Q：什么是计算机网络？</p>
+<p>计算机网络是由多个计算机系统及其他硬件设备通过通信链路互联而成的系统，旨在共享资源、数据和信息。网络中的计算机和设备通过协议（如TCP&#x2F;IP）进行通信，确保数据在不同设备之间可靠传输。计算机网络可以按规模、连接方式和功能进行分类，如局域网（LAN）、广域网（WAN）和互联网</p>
+<p><strong>基本组成部分</strong></p>
+<p>终端设备：计算机、服务器、智能手机、平板电脑等，用于发送和接收数据。</p>
+<p>网络设备：路由器、交换机、集线器、网关等，用于数据传输和管理。</p>
+<p>通信介质：有线（如以太网电缆、光纤）或无线（如Wi-Fi、蓝牙）介质，用于连接设备。</p>
+<p>协议：一组规则和标准，如TCP&#x2F;IP、HTTP、FTP，用于确保设备间通信的正确性和有效性。</p>
+<p><strong>网络的类型</strong></p>
+<p>局域网（LAN）：覆盖小范围（如办公室、家庭）的网络，传输速率高，延迟低。常用的技术有以太网、Wi-Fi。</p>
+<p>城域网（MAN）：覆盖一个城市或多个建筑的网络，规模和传输距离介于LAN和WAN之间。</p>
+<p>广域网（WAN）：覆盖大范围（如国家、洲际）的网络，传输距离远，速率相对较低。互联网就是最大的WAN。</p>
+<p>个人局域网（PAN）：覆盖个人使用范围的网络，如蓝牙、红外连接</p>
+<p><strong>计算机网络的应用</strong></p>
+<ol>
+<li>互联网：全球最大的计算机网络，提供信息检索、电子邮件、电子商务、社交网络等服务。</li>
+<li>企业网络：支持企业内部通信和资源共享，提高办公效率和业务协同。</li>
+<li>校园网：提供学校内部教学、科研和管理的网络环境。</li>
+<li>家庭网络：连接家庭设备，实现互联网接入、家庭娱乐和智能家居控制</li>
+</ol>
+<p>Q：网络核心、网络边缘的概念？</p>
+<ul>
+<li>网络核心（Network Core）是网络的中心部分，负责高速传输和交换数据包，确保数据能够在不同的网络边缘之间高效传递。核心网络通常由<strong>高性能路由器和交换机组成</strong>，提供主干传输和数据中继功能。</li>
+<li>网络边缘（Network Edge）指的是<strong>网络中用户和设备直接接入的部分，包括终端设备、接入网络和边缘设备</strong>。它是网络中的第一跳，用户通过这里访问网络服务。</li>
+</ul>
+<p>Q：网络边缘是如何接入网络核心的？&#x3D;&gt; 下面详细介绍了。</p>
+<p>Q：现在使用的internet协议栈有几层？&#x3D;&gt; 5层</p>
+</blockquote>
+<p><strong>相关术语：</strong></p>
+<ul>
+<li><p>主机(host)（端系统，end system）：连接到网络的设备 </p>
+</li>
+<li><p>通信链路(communication link) </p>
+</li>
+<li><p>分组交换机(packet switch) 分类：路由器(router)、链路层交换机(link-layer-switch) </p>
+</li>
+<li><p>因特网服务提供商(Internet sevice provider, ISP) </p>
+</li>
+<li><p>TCP(transmission control protocol) </p>
+</li>
+<li><p>IP(internet protocol) </p>
+</li>
+<li><p>ISPs (Internet Service Providers) </p>
+</li>
+<li><p>因特网标准(internet standard)：由因特网工程任务组(internet engineering task force, IETF)研发。其标准文档称为请求文档(request for comment, RFC) </p>
+</li>
+<li><p>协议(Protocol)：定义了两个或多个通信实体之间交换的报文格式和次序，以及报文发送和&#x2F;或接受一条报文或其 他事件所采用的动作。</p>
+</li>
+</ul>
+<p><strong>网络接入（Access Networks）：</strong>网络边缘接入网络核心</p>
+<ul>
+<li><p>DSL(Digital Subscriber Line, 数字用户线)</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113407853.png" alt="image-20240611113407853"></p>
+</li>
+<li><p>HFC( hybrid fiber coax)</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113422623.png" alt="image-20240611113422623"></p>
+</li>
+<li><p>FTTH(Fiber To The Home，光纤到户)</p>
+</li>
+</ul>
+<p>  <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113455060.png" alt="image-20240611113455060"></p>
+<blockquote>
+<p>拨号调制解调器：传输速率低（56 kbps），专用带宽。<br>HFC：传输速率高（10 Mbps 到 1 Gbps 下行）<strong>，共享带宽。</strong><br>DSL：传输速率中等（1.5 Mbps 到 100 Mbps 下行），专用带宽，受距离影响。<br>FTTH：传输速率非常高（100 Mbps 到 10 Gbps），大多数情况下为专用带宽或部分共享，但实际体验非常高。</p>
+</blockquote>
+<ul>
+<li><p>以太网 <strong>最流行</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.assets/image-20240611113507149.png" alt="image-20240611113507149"></p>
+</li>
+<li><p>WIFI</p>
+</li>
+<li><p>广域无线网 : 5G、LTE等等。</p>
+</li>
+</ul>
+<p><strong>物理媒体：</strong></p>
+<ul>
+<li>双绞铜线(Twisted-Pair Copper Wire)</li>
+<li>同轴电缆(Coaxial Cable)</li>
+<li>光纤(Fiber Optics)</li>
+<li>陆地无线通信道(Terrestrial Radio Channels)</li>
+<li>卫星无线电信道(Satellite Radio Channels)</li>
+</ul>
+<p><strong>网络协议栈：</strong></p>
+<p>目前因特网的协议栈为5层，但是国际标准化化组织(ISO)提出的使七层，称之为开放系统互连模型 (Open Systems Interconnection model, OSI model)</p>
+<p>从上到下分别是：</p>
+<ol>
+<li>应用层 (Application)  服务：网络应用以及它们的应用协议存留的地方 协议例子：HTTP, SMTP, FTP, DNS, P2P, Telnet 分组： 报文(<strong>message</strong>)</li>
+<li>运输层 (Transport)  （向上层）提供的服务：应用程序之间传送应用层报文 协议（实现机制）：TCP、UDP 分组：报文段 (<strong>segment</strong>)</li>
+<li>网络层 (Network)  （向上层）提供的服务：将分组从一台主机移动到另一台主机 协议（实现机制）：IP 分组：数据报 (<strong>datagram</strong>)</li>
+<li>链路层 (Link)  （向上层）提供的服务：将分组从一个节点(主机或分组交换机)移动到下一个节点 协议（实现机制）： 取决于该链路特定链路层协议 分组：帧(<strong>frame</strong>) </li>
+<li>物理层 (physical)  （向上层）提供的服务：将帧的一个一个比特从一个节点移动到下一个节点 协议（实现机制）：与实际的传输媒体有关</li>
+</ol>
+<h2 id="2-应用层"><a href="#2-应用层" class="headerlink" title="2. 应用层"></a>2. 应用层</h2><h2 id="3-传输层"><a href="#3-传输层" class="headerlink" title="3. 传输层"></a>3. 传输层</h2><h3 id="3-1-传输层的职责概述及其为上层提供的服务"><a href="#3-1-传输层的职责概述及其为上层提供的服务" class="headerlink" title="3.1 传输层的职责概述及其为上层提供的服务"></a>3.1 传输层的职责概述及其为上层提供的服务</h3><p>传输层负责为运行在不同主机上的应用进程提供逻辑通信，传输层的协议运行在端系统。大致的工作流程：</p>
 <ul>
 <li>发送方：从应用层（主机上的应用进程）接收message，将其封装成segment ，利用网络层将数据发出。</li>
 <li>接收方：从网络层接收数据，将segment重组成messaage，交给应用进程。</li>
@@ -402,7 +507,99 @@
 <li><p><strong>发送方为每个未确认的分组保持一个定时器，当超时定时器到时，只是重发到时的未确认分组</strong></p>
 </li>
 </ul>
-<h4 id="3-4-2-TCP的具体实现"><a href="#3-4-2-TCP的具体实现" class="headerlink" title="3.4.2 TCP的具体实现"></a>3.4.2 TCP的具体实现</h4><h3 id="3-5-TCP的拥塞控制"><a href="#3-5-TCP的拥塞控制" class="headerlink" title="3.5 TCP的拥塞控制"></a>3.5 TCP的拥塞控制</h3><h4 id="前置知识：拥塞控制原理"><a href="#前置知识：拥塞控制原理" class="headerlink" title="前置知识：拥塞控制原理"></a>前置知识：拥塞控制原理</h4><h2 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4. 网络层"></a>4. 网络层</h2><h2 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5. 链路层"></a>5. 链路层</h2>
+<h4 id="3-4-2-TCP的具体实现"><a href="#3-4-2-TCP的具体实现" class="headerlink" title="3.4.2 TCP的具体实现"></a>3.4.2 TCP的具体实现</h4><p><strong>特点概述：</strong></p>
+<ul>
+<li>点对点： 一个发送方，一个接收方</li>
+<li>可靠的、按顺序的字节流：<strong>没有报文边界</strong></li>
+<li>管道化（流水线）： TCP根据调整窗口大小进行拥塞控制和流量控制</li>
+<li>发送和接收缓存</li>
+<li>全双工数据： 在同一连接中<strong>数据流双向流动</strong>；MSS：最大报文段大小</li>
+<li>面向连接： 在数据交换之前，通过握手（交换控制报文）初始化发送方、接收方的状态变量</li>
+</ul>
+<p><strong>报文结构：</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611095844989.png" alt="image-20240611095844989"></p>
+<p>序号：报文段首字节的在字节流的编号</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611101454030.png" alt="image-20240611101454030"></p>
+<blockquote>
+<p>在TCP传输过程中，序号（Sequence Number）字段用于跟踪每个字节的数据顺序。当传输端（发送方）从上层接收到一个message并封装成TCP报文段时，它会使用一个随机生成的初始序号（Initial Sequence Number, ISN）。后续的TCP报文段的序号将基于这个初始序号递增。</p>
+<p><strong>建立连接时</strong>：在三次握手过程中，双方交换初始序号。例如，A发送的SYN报文段中包含初始序号（ISN_A），B响应的SYN-ACK报文段中包含B的初始序号（ISN_B）。</p>
+<p><strong>数据传输时</strong>：每个报文段的序号字段标记了该段中第一个数据字节的序号。例如，如果A的初始序号是1000，且A发送了100字节的数据，那么A发送的第一个报文段的序号字段将是1000，第二个报文段的序号字段将是1100（因为第一个报文段包含100个字节的数据）。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611101418648.png" alt="image-20240611101418648"></p>
+</blockquote>
+<p>确认号：<strong>期望从另一方收到的下一个字节的序号</strong>；累积确认（发送方收到ACKn , 就会发出pktn）</p>
+<p>乱序接收：没有规定接收方如何处理乱序的 报文段（但是一般都是先缓存而不会直接丢弃）</p>
+<blockquote>
+<p>TCP 协议虽然没有强制规定接收方必须采取的具体处理方式，但在实际实现中，接收方一般会采用接收缓冲区来处理乱序的报文段。这种方式确保了可靠性和有效性。如果接收方简单地丢弃乱序的报文段，确实会导致传输效率低下甚至错误，因此大多数 TCP 实现不会这样做</p>
+</blockquote>
+<p><strong>设置合理的超时时间：</strong></p>
+<p>超时时间设置为一个RTT（加权过后）+ 4被方差。可以理解为<strong>比一个往返时长再多一点点</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611101815905.png" alt="image-20240611101815905"></p>
+<p><strong>TCP的rdt实现：</strong></p>
+<p>TCP在IP不可靠服务的基础上 建立了rdt：</p>
+<ul>
+<li>管道化的报文段（ GBN or SR）</li>
+<li>累积确认，响应期望收到的下一个分组的序号，也可以说是顺序收到的最后一个字节的数据编号 + 1（像GBN）</li>
+<li>单个重传定时器（像GBN）</li>
+<li>没有规范是否可以接受乱序</li>
+</ul>
+<p>通过以下事件触发重传：</p>
+<ul>
+<li><p><strong>超时（只重发那个最早的未确认段：SR）</strong></p>
+</li>
+<li><p>重复的确认（例子：收到了ACK50,之后又收到3 个ACK50）</p>
+<blockquote>
+<p>快速重传超时周期往往太长： 在重传丢失报文段之前的延时太长，通过重复的ACK来检测 报文段丢失。发送方通常连续发送大量 报文段。如果报文段丢失，通常会引起多个重复的ACK</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>发送方事件：</strong></p>
+<p>从应用层接收数据 –&gt; 将应用层数据分段，并为每个报文段分配序列号 –&gt; 将报文段放入发送缓冲区 –&gt; 通过网络发送</p>
+<ul>
+<li><strong>定时器与最早未确认的报文 段关联</strong></li>
+<li>收到对尚未确认的报文段确认，则更新已被确认的报文序号。如果当前还有未被确认的报文段，重新启动定时器</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611105528863.png" alt="image-20240611105528863"></p>
+<p><strong>流量控制:</strong></p>
+<p>接收方控制发送方，不让发送方发送的太多、太快以至于让接收方的缓冲区溢出。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611110019687.png" alt="image-20240611110019687"></p>
+<p>解决方法：</p>
+<ul>
+<li>接收方在其向发送方的TCP段 头部的rwnd字段“通告”其空 闲buffer大小 <ul>
+<li>大小通过socket选项 设置(典型默认大小为4096 字 节) </li>
+<li>很多操作系统自动调整</li>
+</ul>
+</li>
+<li>发送方限制未确认(“in flight”)字节的个数 ≤ 接收方发送过来的值，保证接收方不会被淹没</li>
+</ul>
+<p><strong>连接管理：</strong></p>
+<p>在正式交换数据之前，发送方和接收方握手建立通 信关系。目的：</p>
+<ul>
+<li>同意建立连接（每一方都知道对方愿意建立连接）</li>
+<li>交换连接参数</li>
+</ul>
+<p>使用两次握手可以吗？</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611110329711.png" alt="image-20240611110329711"></p>
+<p>会存在半连接以及接收旧数据的问题，</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611110442161.png" alt="image-20240611110442161"></p>
+<p>对于场景1：如果客户端第一次的连接请求超时了，它会重发一个连接请求与服务器建立起了连接。这时前面的那个连接到了服务器这里，服务器就与它建立起了连接，给它准备连接资源。但这只是个半连接，客户端不认，只有服务器在维持，白白浪费了资源。</p>
+<p>对于场景2：客户端与服务器建立起连接之后，连接请求和传送的数据都超时了，而且都在连接断开之后到达了服务器，服务器还是会建立连接并且接收数据。</p>
+<p>改进：<strong>3次握手来建立起连接</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611110916280.png" alt="image-20240611110916280"></p>
+<p>这样也能解决前面的失败场景：</p>
+<p>当旧连接到达服务器的时候，服务器会再向客户端发送一个确认连接，客户端可以拒绝或者不理，这样连接过程就不完整（只有2次握手），无法建立起连接。对于旧数据也是如此，半连接建立不起来，更别说传数据了。</p>
+<p><strong>在连接结束之后需要关闭连接：4次挥手</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240611111407426.png" alt="image-20240611111407426"></p>
+<p>客户端，服务器分别关闭它自己这一侧的连接。客户点等待一段时间之后发现没有数据过来了，就关闭。</p>
+<blockquote>
+<p>可以联想，两个人分别的时候，A先说要回家了：</p>
+<p>A -&gt; B : 阿B，我要回家啦</p>
+<p>B -&gt; A ：好</p>
+<p>B也要说一下自己走了</p>
+<p>B -&gt; A ：那我也回家啦</p>
+<p>A -&gt; B：ok~</p>
+<p>然后A目送B离开，自己也转身迈步离开。</p>
+</blockquote>
+<h3 id="3-5-TCP的拥塞控制"><a href="#3-5-TCP的拥塞控制" class="headerlink" title="3.5 TCP的拥塞控制"></a>3.5 TCP的拥塞控制</h3><h4 id="前置知识：拥塞控制原理"><a href="#前置知识：拥塞控制原理" class="headerlink" title="前置知识：拥塞控制原理"></a>前置知识：拥塞控制原理</h4><h2 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4. 网络层"></a>4. 网络层</h2><h2 id="5-链路层"><a href="#5-链路层" class="headerlink" title="5. 链路层"></a>5. 链路层</h2>
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
