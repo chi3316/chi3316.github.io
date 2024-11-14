@@ -19,16 +19,27 @@
   <title>自动化混沌测试框架的设计与实现 - 迟迟</title>
 
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="1. 技术选型1.1 OpenChaosOpenChaos 是openmessage组织下开源的一款混沌测试框架。其主要目标是通过模拟各种故障场景，验证消息系统在高并发和故障条件下的稳定性和可靠性。OpenChaos 提供了一些预定义的测试模型，能够检测系统在网络延迟、网络分区、节点崩溃等情况下的行为。 1.1.1 工作原理OpenChaos的架构图如下：   整体架构可以分为管理层、执行层与被测">
+<meta property="og:type" content="article">
 <meta property="og:title" content="自动化混沌测试框架的设计与实现">
 <meta property="og:url" content="https://chi3316.github.io/2024/08/22/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="迟迟">
+<meta property="og:description" content="1. 技术选型1.1 OpenChaosOpenChaos 是openmessage组织下开源的一款混沌测试框架。其主要目标是通过模拟各种故障场景，验证消息系统在高并发和故障条件下的稳定性和可靠性。OpenChaos 提供了一些预定义的测试模型，能够检测系统在网络延迟、网络分区、节点崩溃等情况下的行为。 1.1.1 工作原理OpenChaos的架构图如下：   整体架构可以分为管理层、执行层与被测">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240518094127370.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240518094127370.png">
+<meta property="og:image" content="https://chi3316.github.io/2024/08/22/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/Untitled%20diagram-2024-11-14-111418.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240518113553345.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240518113553345.png">
+<meta property="og:image" content="https://chi3316.github.io/assets/image-20240519112016197.png">
+<meta property="og:image" content="https://chi3316.github.io/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240519112016197.png">
+<meta property="og:image" content="https://chi3316.github.io/2024/08/22/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/Untitled%20diagram-2024-11-14-111207.png">
 <meta property="article:published_time" content="2024-08-22T03:34:04.000Z">
-<meta property="article:modified_time" content="2024-08-22T03:34:23.051Z">
+<meta property="article:modified_time" content="2024-11-14T11:16:45.876Z">
 <meta property="article:author" content="Jamie Chen">
 <meta property="article:tag" content="OSPP2024">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chi3316.github.io/assets/image-20240518094127370.png">
   
   
   
@@ -63,7 +74,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/04/03/git%E7%9A%84%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"><span class="title">git的原理简介及其常用命令总结</span></a><a class="item title" href="/2024/08/26/Rocketmq%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81MQ%E6%B6%88%E6%81%AF%E6%B6%88%E8%B4%B9%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/"><span class="title">Rocketmq消息重复消费问题--如何保证MQ消息消费的幂等性</span></a><a class="item title" href="/2024/08/22/%E4%B8%BARocketmq%E5%A2%9E%E5%8A%A0%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E6%B5%81%E6%B0%B4%E7%BA%BF/"><span class="title">为Rocketmq增加集成测试流水线</span></a><a class="item title" href="/2024/08/22/K8s%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"><span class="title">K8s常用命令总结</span></a><a class="item title" href="/2024/08/22/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"><span class="title">自动化混沌测试框架的设计与实现</span></a><a class="item title" href="/2024/08/16/%E4%BB%8E%E4%BD%BF%E7%94%A8GitHub-Action%E5%88%B0%E8%87%AA%E5%AE%9A%E4%B9%89Action/"><span class="title">从使用GitHub Action到自定义Action</span></a><a class="item title" href="/2024/04/11/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E6%8F%90%E4%BA%A4pr/"><span class="title">记录第一次在开源社区提交pr的过程</span></a><a class="item title" href="/2024/07/25/%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E8%BF%9B%E7%A8%8B%E5%B9%B6%E5%8F%91%E5%86%99%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"><span class="title">多个不同进程并发写同一个文件的问题</span></a><a class="item title" href="/2024/06/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="title">计算机网络：Top-Down</span></a><a class="item title" href="/2024/04/11/test/"><span class="title">test</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/22/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"><span class="title">自动化混沌测试框架的设计与实现</span></a><a class="item title" href="/2024/04/03/git%E7%9A%84%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"><span class="title">git的原理简介及其常用命令总结</span></a><a class="item title" href="/2024/08/26/Rocketmq%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81MQ%E6%B6%88%E6%81%AF%E6%B6%88%E8%B4%B9%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/"><span class="title">Rocketmq消息重复消费问题--如何保证MQ消息消费的幂等性</span></a><a class="item title" href="/2024/08/22/%E4%B8%BARocketmq%E5%A2%9E%E5%8A%A0%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E6%B5%81%E6%B0%B4%E7%BA%BF/"><span class="title">为Rocketmq增加集成测试流水线</span></a><a class="item title" href="/2024/08/22/K8s%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"><span class="title">K8s常用命令总结</span></a><a class="item title" href="/2024/08/16/%E4%BB%8E%E4%BD%BF%E7%94%A8GitHub-Action%E5%88%B0%E8%87%AA%E5%AE%9A%E4%B9%89Action/"><span class="title">从使用GitHub Action到自定义Action</span></a><a class="item title" href="/2024/04/11/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E6%8F%90%E4%BA%A4pr/"><span class="title">记录第一次在开源社区提交pr的过程</span></a><a class="item title" href="/2024/07/25/%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E8%BF%9B%E7%A8%8B%E5%B9%B6%E5%8F%91%E5%86%99%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"><span class="title">多个不同进程并发写同一个文件的问题</span></a><a class="item title" href="/2024/06/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="title">计算机网络：Top-Down</span></a><a class="item title" href="/2024/04/11/test/"><span class="title">test</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -76,7 +87,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-08-22T03:34:04.000Z">2024-08-22</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-22T03:34:23.051Z">2024-08-22</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-08-22T03:34:04.000Z">2024-08-22</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-14T11:16:45.876Z">2024-11-14</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -87,7 +98,122 @@
     </div>
     
   </div>
-  </div><article class="md-text content">
+  </div><article class="md-text content"><h2 id="1-技术选型"><a href="#1-技术选型" class="headerlink" title="1. 技术选型"></a>1. 技术选型</h2><h3 id="1-1-OpenChaos"><a href="#1-1-OpenChaos" class="headerlink" title="1.1 OpenChaos"></a>1.1 OpenChaos</h3><p>OpenChaos 是openmessage组织下开源的一款混沌测试框架。其主要目标是通过模拟各种故障场景，验证消息系统在高并发和故障条件下的稳定性和可靠性。OpenChaos 提供了一些预定义的测试模型，能够检测系统在网络延迟、网络分区、节点崩溃等情况下的行为。</p>
+<h4 id="1-1-1-工作原理"><a href="#1-1-1-工作原理" class="headerlink" title="1.1.1 工作原理"></a>1.1.1 工作原理</h4><p>OpenChaos的架构图如下：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240518094127370.png" alt="image-20240518094127370"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240518094127370.png" alt="image-20240518094127370"></p>
+<p>整体架构可以分为管理层、执行层与被测组件层。</p>
+<ul>
+<li>管理层负责整个测试流程的控制，确保测试的各个步骤按预定顺序进行。</li>
+<li>中间的执行层是OpenChaos的核心组件，Model定义了对分布式系统进行操作的基本形式，包括测试步骤和方法；Detection Model用来给系统注入故障模型；Metrics和Measurement Model负责监测被测集群的表现和根据测试结果生成可视化图表。</li>
+<li>被测组件层指的是待测试的分布式系统，可以通过实现OpenChaos的API接入驱动。</li>
+</ul>
+<p>OpenChaos 的工作原理是：</p>
+<ol>
+<li>控制节点负责管理整个测试流程，将集群节点组成待测试的分布式集群，并根据需要测试的系统找到并加载对应的 Driver 组件，创建相应数量的客户端。</li>
+<li>控制节点按照Model 组件定义的流程，指挥客户端对集群进行操作。</li>
+<li>在测试过程中，Detection Model 会根据不同的观察需求在集群节点上引入故障或事件。</li>
+<li>Metrics 模块则监测集群的表现，收集性能数据。</li>
+<li>测试结束后，检查器组件自动分析业务和非业务数据，生成测试结果并以可视化图表的形式展示。</li>
+</ol>
+<h4 id="1-1-2-消息检测模型（QueueModel）"><a href="#1-1-2-消息检测模型（QueueModel）" class="headerlink" title="1.1.2 消息检测模型（QueueModel）"></a>1.1.2 消息检测模型（QueueModel）</h4><p>OpenChaos提供了对分布式系统进行混沌测试的基础框架，可以有效的检测分布式集群在各种边缘故障环境下的韧性表现。它提供的消息检测模型可以很好地检测分布式消息系统的表现。完成本项目需要对OpenChaso提供的消息检测模型有足够深入的了解。通过阅读OpenChaos的源码可以初步认识该消息检测模型：</p>
+<p>在<code>chaos-framework/src/main/java/io/openchaos/model</code>包下的 <code>Model</code> 接口定义了 OpenChaos 中检测模型的核心操作和方法，提供了管理测试集群和执行测试的基本功能。该接口的方法及其作用如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Model</span> <span class="keyword">extends</span> <span class="title class_">MetaDataSupport</span> &#123;</span><br><span class="line">    <span class="comment">// 设置所有客户端(client节点),包括初始化客户端实例并配置它们以便与测试集群进行交互</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">setupClient</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 设置要测试的集群。driverConfiguration : 驱动程序的配置，指定如何配置和管理集群节点</span></span><br><span class="line">    Map&lt;String, ChaosNode&gt; <span class="title function_">setupCluster</span><span class="params">(DriverConfiguration driverConfiguration, <span class="type">boolean</span> isInstall, <span class="type">boolean</span> restart)</span>;</span><br><span class="line">    <span class="comment">// 确保集群已准备就绪</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">probeCluster</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 开始测试，启动测试过程，包括故障注入和性能监控</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 停止测试</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">stop</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 测试停止后执行的操作,用于清理或收集测试后的数据</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">afterStop</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 关闭模型</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">shutdown</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 获取MetaNode,在RocketMQ指NameServer</span></span><br><span class="line">    String <span class="title function_">getMetaNode</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 获取可以区分集群的名称，在RocketMQ中指clusterName</span></span><br><span class="line">    String <span class="title function_">getMetaName</span><span class="params">()</span>;</span><br><span class="line">    <span class="comment">// 获取状态类的类名</span></span><br><span class="line">    String <span class="title function_">getStateName</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中针对消息系统的检测模型是<code>QueueModel</code>，它是 <code>Model</code> 接口的一个实现类，用于测试消息队列系统的可靠性和稳定性。它具体实现了 <code>Model</code> 接口中定义的方法，并且添加了很多与消息队列相关的特定功能。</p>
+<p>其构造函数和一些重要的成员变量如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">QueueModel</span><span class="params">(<span class="type">int</span> concurrency, RateLimiter rateLimiter, Recorder recorder, File driverConfigFile,</span></span><br><span class="line"><span class="params">    <span class="type">boolean</span> isOrderTest, <span class="type">boolean</span> isUsePull, List&lt;String&gt; shardingKeys)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.concurrency = concurrency; <span class="comment">// 并发数，决定同时运行的客户端数量</span></span><br><span class="line">    <span class="built_in">this</span>.recorder = recorder; <span class="comment">// 记录器，记录请求/响应的数据</span></span><br><span class="line">    <span class="built_in">this</span>.driverConfigFile = driverConfigFile; <span class="comment">// 驱动的配置文件</span></span><br><span class="line">    <span class="built_in">this</span>.rateLimiter = rateLimiter;</span><br><span class="line">    clients = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(); <span class="comment">// 存储客户端线程的列表</span></span><br><span class="line">    workers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(); <span class="comment">// 工作线程列表</span></span><br><span class="line">    cluster = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    metaNodesMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    chaosTopic = String.format(<span class="string">&quot;%s-chaos-topic&quot;</span>, DATE_FORMAT.format(<span class="keyword">new</span> <span class="title class_">Date</span>()));</span><br><span class="line">    <span class="built_in">this</span>.isOrderTest = isOrderTest; <span class="comment">// 是否进行有序测试</span></span><br><span class="line">    <span class="built_in">this</span>.isUsePull = isUsePull; <span class="comment">// 是否使用拉取模式</span></span><br><span class="line">    <span class="built_in">this</span>.shardingKeys = shardingKeys;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>QueueModel在设置完集群setupCluster()和客户端setupClient()之后，通过start()启动：</strong></p>
+<p>对于消息系统，会启动所有的<code>QueueClient</code>的工作线程，负责消息的生产和消费操作。它的<code>nextInvoke()</code>方法负责向群集发出请求,根据生成的操作进行相应的生产或消费操作，并记录请求和响应日志。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">nextInvoke</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">if</span> (op.getInvokeOperation().equals(<span class="string">&quot;enqueue&quot;</span>)) &#123;</span><br><span class="line">        <span class="comment">// 生产操作 </span></span><br><span class="line">        InvokeResult invokeResult;</span><br><span class="line">        <span class="keyword">if</span> (isOrderTest) &#123;</span><br><span class="line">            <span class="comment">// 顺序测试时，选择分片键并记录请求和响应日志</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">shardingKey</span> <span class="operator">=</span> shardingKeys.get(random.nextInt(shardingKeys.size()));</span><br><span class="line">            requestLogEntry.shardingKey = shardingKey;</span><br><span class="line">            recorder.recordRequest(requestLogEntry);</span><br><span class="line">            invokeResult = producer.enqueue(shardingKey, op.getValue().getBytes());</span><br><span class="line">            recorder.recordResponse(<span class="keyword">new</span> <span class="title class_">ResponseLogEntry</span>(clientId, op.getInvokeOperation(),</span><br><span class="line">                invokeResult, shardingKey, op.getValue(), System.currentTimeMillis(), System.currentTimeMillis() - requestLogEntry.timestamp, invokeResult.getExtraInfo()));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 非顺序测试时，直接记录请求和响应日志</span></span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// 消费操作，调用 dequeue 方法，记录响应日志</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>stop()停止测试，并在测试结束后执行客户端的最后一次调用：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterStop</span><span class="params">()</span> &#123;</span><br><span class="line">        clients.forEach(Client::lastInvoke); <span class="comment">// 如果Queue在usePull模式下，lastInvoke会通过循环拉取和记录(drain)消息，确保所有剩余消息都得到处理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>最后，关闭客户端和集群节点。</strong></p>
+<p>以下是 <code>QueueModel</code> 进行消息系统测试的流程图：</p>
+<p>![Untitled diagram-2024-11-14-111418](&#x2F;assets&#x2F;Untitled diagram-2024-11-14-111418.png)</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="自动化混沌测试框架的设计与实现.assets/Untitled diagram-2024-11-14-111418.png" alt="Untitled diagram-2024-11-14-111418" style="zoom:33%;" />
+
+
+
+<p>OpenChaos提供的消息检测模型可以在各种故障场景下有效地检测消息系统的关键指标：</p>
+<ul>
+<li>消息丢失检测：确保在各种故障场景下，消息不会丢失。</li>
+<li>可用性检测：确保系统在故障发生时仍然具有预期的可用性。</li>
+<li>消息顺序性验证：检测消息系统在故障场景下是否能维持消息顺序的正确性。</li>
+</ul>
+<p>这一模型在确保消息系统的可靠性和稳定性方面具有很高的借鉴价值。在本项目中需要对OpenChaos的消息检测模型有比较深刻的认识之后，再利用这一模型结合Chaos Mesh等混沌测试平台对RocketMQ集群进行测试。</p>
+<h3 id="1-2-Chaos-Mesh"><a href="#1-2-Chaos-Mesh" class="headerlink" title="1.2 Chaos Mesh"></a>1.2 Chaos Mesh</h3><h4 id="1-2-1-原理简介"><a href="#1-2-1-原理简介" class="headerlink" title="1.2.1 原理简介"></a>1.2.1 原理简介</h4><p>Chaos Mesh是一个基于Kubernetes的云原生混沌工程平台，内置了丰富的故障模拟类型，可以很方便地在开发测试中以及生产环境中模拟系统在现实世界中可能出现的各类异常，及时发现系统潜在的问题。</p>
+<p>Chaos Mesh基于 Kubernetes CRD (Custom Resource Definition) 构建。其工作原理可以简要概述为：</p>
+<ol>
+<li><strong>故障类型对应Kubernetes的CRD</strong>：将不同的故障类型定义为多个CRD类型。这些CRD类型包括网络故障、节点故障、磁盘故障等。用户可以通过创建相应的CRD对象来描述和配置具体的故障模拟实验。</li>
+<li><strong>每种故障类型由单独的Controller控制</strong>：每种故障类型实现了单独的Controller，这些Controller负责监听和处理对应CRD对象的变更事件，根据用户的配置启动、停止或调整相应的混沌实验。</li>
+<li><strong>执行混沌实验</strong>：当用户创建或更新CRD对象时，对应的Controller会根据CRD对象中的配置信息启动相应的混沌实验，在Kubernetes集群中模拟各种故障和异常条件。</li>
+<li><strong>测试结果分析：</strong>在混沌实验执行完成后，Chaos Mesh根据测试的数据评估系统在面对各种异常情况时的表现。</li>
+</ol>
+<h4 id="1-2-2-定义混沌实验并进行故障注入"><a href="#1-2-2-定义混沌实验并进行故障注入" class="headerlink" title="1.2.2 定义混沌实验并进行故障注入"></a>1.2.2 定义混沌实验并进行故障注入</h4><p>通过对Chaos Mesh原理而简要分析之后，可知使用Chaos Mesh进行混沌测试的<strong>关键在于如何定义混沌实验的类型并将故障注入到待测试的系统中</strong>。在学习了Chaos Mesh的文档和运行demo示例之后，我对Chaos Mesh的使用有了初步的认识：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240518113553345.png" alt="image-20240518113553345"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240518113553345.png" alt="image-20240518113553345"></p>
+<p><strong>定义混沌实验：</strong></p>
+<p>在Chaos Mesh中可以通过编写对应 YAML 文件或者在Dashboard上操作这两种方式定义混沌实验，很明显编写YAML的方式更符合本项目的需求。在定义混沌实验时，可以通过<code>selector</code>指定实验作用的范围，还可以通过创建不同的<code>Schedule</code>对象来定义实验的调度规则，比如可以使用cron表达式作为<code>schedule</code>字段的值来执行定时任务，从而在固定的时间（或根据固定的时间间隔）自动新建混沌实验。</p>
+<p>下面是一个混沌实验（名为<code>network-delay.yaml</code>的文件）的定义示例：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">chaos-mesh.org/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Schedule</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">schedule-delay-example</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">schedule:</span> <span class="string">&#x27;5 * * * *&#x27;</span></span><br><span class="line">  <span class="attr">historyLimit:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">concurrencyPolicy:</span> <span class="string">&#x27;Allow&#x27;</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;NetworkChaos&#x27;</span></span><br><span class="line">  <span class="attr">networkChaos:</span></span><br><span class="line">    <span class="attr">action:</span> <span class="string">delay</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">one</span></span><br><span class="line">    <span class="attr">selector:</span></span><br><span class="line">      <span class="attr">namespaces:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">labelSelectors:</span></span><br><span class="line">        <span class="attr">&#x27;app&#x27;:</span> <span class="string">&#x27;web-show&#x27;</span></span><br><span class="line">    <span class="attr">delay:</span></span><br><span class="line">      <span class="attr">latency:</span> <span class="string">&#x27;10ms&#x27;</span></span><br><span class="line">      <span class="attr">correlation:</span> <span class="string">&#x27;100&#x27;</span></span><br><span class="line">      <span class="attr">jitter:</span> <span class="string">&#x27;0ms&#x27;</span></span><br><span class="line">    <span class="attr">duration:</span> <span class="string">&#x27;12s&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>依据此配置，Chaos Mesh 将会在每个小时的第五分钟（比如 <code>0:05</code>, <code>1:05</code>…）创建 <code>NetworkChaos</code> 对象。</p>
+<p><strong>运行实验，将故障注入系统：</strong></p>
+<p>定义完混沌实验的类型之后，仍以上面的<code>network-delay.yaml</code>举例，使用<code>kubectl apply -f</code>创建并运行该指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f network-delay.yaml</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>kubectl describe</code> 命令检查混沌实验的运行情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe networkchaos network-delay</span><br></pre></td></tr></table></figure>
+
+<p>结束混沌实验后，使用 <code>kubectl delete</code> 命令删除混沌实验：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete networkchaos network-delay</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-3-OpenChaos的消息检测模型与Chaos-Mesh的结合"><a href="#1-2-3-OpenChaos的消息检测模型与Chaos-Mesh的结合" class="headerlink" title="1.2.3 OpenChaos的消息检测模型与Chaos Mesh的结合"></a>1.2.3 OpenChaos的消息检测模型与Chaos Mesh的结合</h4><p>经过前面的调研，可以认识到Chaos Mesh和OpenChaos的定位是不太相同的，<strong>Chaos Mesh主要提供比较完整的混沌实验故障注入的手段，而OpenChaos则是需要针对某些类型中间件做固定Module运行</strong>。而本项目是针对RocketMQ集群进行测试，利用OpenChaos提供的队列模型对消息系统的消息语义进行验证，并结合Chaos Mesh测试平台在Kubernetes环境下方便部署的特性来为RocketMQ构建自动化的测试框架是一套更为准确的方案。</p>
+<p>但是按照OpenChaos的使用方法来搭建测试环境需要一些准备工作和手动配置，是比较繁琐的。为了在Kubernetes环境下更方便地部署和管理这个测试框架，可以考虑将OpenChaos配置和运行脚本容器化，部署到Kubernetes中，这样能够简化其部署流程，使其能够在Kubernetes集群中自动化地运行消息系统测试。结合Chaos Mesh，可以在同一环境中注入各种故障，模拟真实的生产环境，从而更加全面和准确地验证RocketMQ的稳定性和容错性。</p>
+<p>可以用下图概括：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/image-20240519112016197.png" alt="image-20240519112016197"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B7%B7%E6%B2%8C%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.assets/image-20240519112016197.png" alt="image-20240519112016197"></p>
+<h3 id="2-搭建自动化-RocketMQ-Chaos-测试基础设施"><a href="#2-搭建自动化-RocketMQ-Chaos-测试基础设施" class="headerlink" title="2. 搭建自动化 RocketMQ Chaos 测试基础设施"></a>2. 搭建自动化 RocketMQ Chaos 测试基础设施</h3><p>通过对项目的调研，对于为RocketMQ搭建一个自动化Chaos测试框架有了一个初步的实现方案：在 Kubernetes 环境中搭建起RocketMQ集群，并将OpenChaos容器化并运行在同一个Kubernetes 环境中对 RocketMQ 集群进行消息语义验证，并结合 Chaos Mesh 进行故障注入，最后收集测试数据并分析结果。编写自动化脚本执行这一测试流程。最终将该框架集成到 GitHub CI 中，实现持续集成测试。</p>
+<p>框架的总体设计包括以下几个部分：</p>
+<ol>
+<li>RocketMQ集群部署：在Kubernetes中部署并运行RocketMQ集群。</li>
+<li>OpenChaos测试容器化：将OpenChaos的测试部分容器化，简化其部署和运行。</li>
+<li>Chaos Mesh故障注入：利用Chaos Mesh注入故障，实现对RocketMQ集群的各种故障模拟。</li>
+<li>Kubernetes编排：通过Kubernetes编排测试和故障注入，自动化执行测试流程。</li>
+</ol>
+<p>以下是详细流程图，展示了框架的工作流程：</p>
+<p>![image-20240519112016197](&#x2F;assets&#x2F;Untitled diagram-2024-11-14-111207.png)</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="自动化混沌测试框架的设计与实现.assets/Untitled diagram-2024-11-14-111207.png" alt="Untitled diagram-2024-11-14-111207" style="zoom: 33%;" />
+
+<p><strong>关键步骤：</strong></p>
+<ol>
+<li>环境准备：<ul>
+<li>安装Kubernetes集群，Chaos Mesh，准备RocketMQ集群的部署配置。</li>
+<li>编辑OpenChaos的配置文件<code>rocketmq.yaml</code>，配置RocketMQ的相关信息。</li>
+</ul>
+</li>
+<li>使用Helm搭建起RocketMQ集群 ： <a target="_blank" rel="noopener" href="https://github.com/apache/rocketmq-docker/tree/master/rocketmq-k8s-helm">https://github.com/apache/rocketmq-docker/tree/master/rocketmq-k8s-helm</a></li>
+<li>创建Dockerfile，将OpenChaos的测试部分容器化，构建Docker镜像。</li>
+<li>创建Kubernetes Job来运行OpenChaos测试容器。</li>
+<li>创建Chaos Mesh CRD，进行故障注入。</li>
+<li>执行测试：<ul>
+<li>确保RocketMQ集群已经运行。</li>
+<li>部署OpenChaos测试Job，开始消息系统的测试。</li>
+<li>在测试过程中，通过Chaos Mesh注入故障，监控RocketMQ的行为和OpenChaos的测试结果。</li>
+<li>等待OpenChaos测试Job完成，生成测试结果文件。</li>
+<li>分析测试结果，生成报告。</li>
+</ul>
+</li>
+<li>清理测试环境，释放资源。</li>
+</ol>
+<p>最后可以集成到GitHub Actions中，实现自动化部署和测试流程。</p>
+
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -119,7 +245,14 @@
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Jamie Chen</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.27.0">Stellar 1.27.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel blur'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="toc-text">1. 技术选型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-OpenChaos"><span class="toc-text">1.1 OpenChaos</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">1.1.1 工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E6%B6%88%E6%81%AF%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%88QueueModel%EF%BC%89"><span class="toc-text">1.1.2 消息检测模型（QueueModel）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Chaos-Mesh"><span class="toc-text">1.2 Chaos Mesh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B"><span class="toc-text">1.2.1 原理简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E5%AE%9A%E4%B9%89%E6%B7%B7%E6%B2%8C%E5%AE%9E%E9%AA%8C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%95%85%E9%9A%9C%E6%B3%A8%E5%85%A5"><span class="toc-text">1.2.2 定义混沌实验并进行故障注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-OpenChaos%E7%9A%84%E6%B6%88%E6%81%AF%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E4%B8%8EChaos-Mesh%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-text">1.2.3 OpenChaos的消息检测模型与Chaos Mesh的结合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96-RocketMQ-Chaos-%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD"><span class="toc-text">2. 搭建自动化 RocketMQ Chaos 测试基础设施</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
